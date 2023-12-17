@@ -25,7 +25,7 @@ function App() {
     event.preventDefault();
     // Handle form submission logic here
     const data = axios
-      .post("http://localhost:8080/user/createuser", { name, phone })
+      .post("https://node-postgresql-crus-server.onrender.com/user/createuser", { name, phone })
       .then((response) => {
         console.log(`User created successfully`);
       })
@@ -45,7 +45,7 @@ function App() {
         const userId = record.id;
         console.log("fro id", userId);
         await axios
-          .post("http://localhost:8080/user/deleteuser", { userId })
+          .post("https://node-postgresql-crus-server.onrender.com/user/deleteuser", { userId })
           .then((response) => {
             console.log(`User deleted successfully`);
           })
@@ -107,7 +107,7 @@ function App() {
 
   const fetchUserData = async () => {
     const data = await axios
-      .get("http://localhost:8080/user/users")
+      .get("https://node-postgresql-crus-server.onrender.com/user/users")
       .then((response) => {
         console.log("data", response.data.user);
         const alluser = response.data.user;
@@ -163,7 +163,7 @@ function App() {
           const phone=editingStudent.phone;
 
         await axios
-          .post("http://localhost:8080/user/updateuser", {id,name,phone })
+          .post("https://node-postgresql-crus-server.onrender.com/user/updateuser", {id,name,phone })
           .then((response) => {
             console.log(`User edited successfully`);
           })
