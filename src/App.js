@@ -15,7 +15,7 @@ function App() {
   const [phone, setPhone] = useState();
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [user]);
 
   const handleButtonClick = () => {
     setFormVisible(true);
@@ -106,9 +106,7 @@ function App() {
   ];
 
   const fetchUserData = async () => {
-    const data = await axios
-      .get("https://node-postgresql-crus-server.onrender.com/user/users")
-      .then((response) => {
+   await axios.get("https://node-postgresql-crus-server.onrender.com/user/users").then((response) => {
         console.log("data", response.data.user);
         const alluser = response.data.user;
         setUser(alluser);
@@ -127,15 +125,15 @@ function App() {
       <Table
         dataSource={user}
         columns={columns}
-        // pagination={{
-        //     total:500, //page by page
-        //     current:page,
-        //     pageSize:pageSize,
-        //     onChange:(page,pageSize)=>{
-        //         setPage(page);
-        //         setPageSize(pageSize)
-        //     }
-        //   }}
+        pagination={{
+            total:100, 
+            current:page,
+            pageSize:pageSize,
+            onChange:(page,pageSize)=>{
+                setPage(page);
+                setPageSize(pageSize)
+            }
+          }}
       ></Table>
 
 
