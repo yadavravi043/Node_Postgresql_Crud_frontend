@@ -1,7 +1,7 @@
 import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button, Table, Modal, Input, Tag } from "antd";
+import {Table, Modal, Input} from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 function App() {
