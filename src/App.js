@@ -15,7 +15,7 @@ function App() {
   const [phone, setPhone] = useState();
   useEffect(() => {
     fetchUserData();
-  }, [user]);
+  },[]);
 
   const handleButtonClick = () => {
     setFormVisible(true);
